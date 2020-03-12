@@ -38,28 +38,28 @@ public class LoginController {
                         HttpServletResponse response,
                         HttpSession session) {
 
-        if(bindingResult.hasErrors()){
-            return new Result(false,StatusEnum.PARAM_ERROR,"PARAM_ERROR",bindingResult.getAllErrors());
+        if (bindingResult.hasErrors()) {
+            return new Result(false, StatusEnum.PARAM_ERROR, "PARAM_ERROR", bindingResult.getAllErrors());
         }
 
         //查看session是否有account
-        if(session.getAttribute("account") == null){
+        if (session.getAttribute("account") == null) {
             //还未登陆
             Result result = loginService.login(userBase);
 
-            if(result.isSuccess()){
+            if (result.isSuccess()) {
 
                 //session 中添加已登陆的账号信息
-                session.setAttribute("account",userBase.getAccount());
+                session.setAttribute("account", userBase.getAccount());
                 session.setMaxInactiveInterval((int) TimeUtil.getHours(4).toSeconds());
                 //response 中设置cookies
-                response.addCookie(new Cookie("account",userBase.getAccount()));
+                response.addCookie(new Cookie("account", userBase.getAccount()));
             }
 
             return result;
-        }else{
+        } else {
             //存在账号已经登陆
-            return new Result(false,StatusEnum.DOUBLE_LOG_IN,"DOUBLE_LOG_IN",null);
+            return new Result(false, StatusEnum.DOUBLE_LOG_IN, "DOUBLE_LOG_IN", null);
         }
     }
 }

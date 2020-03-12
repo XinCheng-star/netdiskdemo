@@ -10,11 +10,11 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @description
  */
 public class MD5Util {
-    public static String getMd5FromFile(byte[] filesBytes){
+    public static String getMd5FromFile(byte[] filesBytes) {
         return DigestUtils.md5Hex(filesBytes);
     }
 
-    public static String getMd5FromPwd(String pwd){
+    public static String getMd5FromPwd(String pwd) {
         return DigestUtils.md5Hex(pwd);
     }
 }

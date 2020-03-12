@@ -29,15 +29,15 @@ public class LogoutController {
     public Result logout(HttpSession session) {
 
         //判断当前会话中是否有account字段
-        if(session.getAttribute("account") == null){
-            return new Result(false,StatusEnum.SESSION_PARAM_LOST,"SESSION_PARAM_LOST :: account",null);
+        if (session.getAttribute("account") == null) {
+            return new Result(false, StatusEnum.SESSION_PARAM_LOST, "SESSION_PARAM_LOST :: account", null);
         }
 
         //删除session的account，并且设置时间为1s
         session.removeAttribute("account");
         session.setMaxInactiveInterval(1);
 
-        return new Result(true,StatusEnum.SUCCESS,"",null);
+        return new Result(true, StatusEnum.SUCCESS, "", null);
     }
 
 }

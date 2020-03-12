@@ -23,8 +23,8 @@ public interface UserTableMapper {
      * @mbg.generated Thu Mar 12 16:28:43 GMT+08:00 2020
      */
     @Delete({
-        "delete from user_table",
-        "where id = #{id,jdbcType=CHAR}"
+            "delete from user_table",
+            "where id = #{id,jdbcType=CHAR}"
     })
     int deleteByPrimaryKey(String id);
 
@@ -35,12 +35,12 @@ public interface UserTableMapper {
      * @mbg.generated Thu Mar 12 16:28:43 GMT+08:00 2020
      */
     @Insert({
-        "insert into user_table (id, account, ",
-        "password, is_active, ",
-        "create_time, modify_time)",
-        "values (#{id,jdbcType=CHAR}, #{account,jdbcType=VARCHAR}, ",
-        "#{password,jdbcType=VARCHAR}, #{isActive,jdbcType=CHAR}, ",
-        "now(), now())"
+            "insert into user_table (id, account, ",
+            "password, is_active, ",
+            "create_time, modify_time)",
+            "values (#{id,jdbcType=CHAR}, #{account,jdbcType=VARCHAR}, ",
+            "#{password,jdbcType=VARCHAR}, #{isActive,jdbcType=CHAR}, ",
+            "now(), now())"
     })
     int insert(UserTable record);
 
@@ -51,18 +51,18 @@ public interface UserTableMapper {
      * @mbg.generated Thu Mar 12 16:28:43 GMT+08:00 2020
      */
     @Select({
-        "select",
-        "id, account, password, is_active, create_time, modify_time",
-        "from user_table",
-        "where id = #{id,jdbcType=CHAR}"
+            "select",
+            "id, account, password, is_active, create_time, modify_time",
+            "from user_table",
+            "where id = #{id,jdbcType=CHAR}"
     })
-    @Results(id = "userMap",value = {
-            @Result(column="id", property="id", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="account", property="account", jdbcType=JdbcType.VARCHAR),
-            @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
-            @Result(column="is_active", property="isActive", jdbcType=JdbcType.CHAR),
-            @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
-            @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP)
+    @Results(id = "userMap", value = {
+            @Result(column = "id", property = "id", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "account", property = "account", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "password", property = "password", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "is_active", property = "isActive", jdbcType = JdbcType.CHAR),
+            @Result(column = "create_time", property = "createTime", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "modify_time", property = "modifyTime", jdbcType = JdbcType.TIMESTAMP)
     })
     UserTable selectByPrimaryKey(String id);
 
@@ -73,7 +73,7 @@ public interface UserTableMapper {
             "from user_table",
             "where account = #{account,jdbcType=VARCHAR}"
     })
-    @ResultMap(value ={"userMap"})
+    @ResultMap(value = {"userMap"})
     UserTable getUserByAccount(String account);
 
 
@@ -84,11 +84,11 @@ public interface UserTableMapper {
      * @mbg.generated Thu Mar 12 16:28:43 GMT+08:00 2020
      */
     @Select({
-        "select",
-        "id, account, password, is_active, create_time, modify_time",
-        "from user_table"
+            "select",
+            "id, account, password, is_active, create_time, modify_time",
+            "from user_table"
     })
-    @ResultMap(value ={"userMap"})
+    @ResultMap(value = {"userMap"})
     List<UserTable> selectAll();
 
     /**
@@ -98,12 +98,12 @@ public interface UserTableMapper {
      * @mbg.generated Thu Mar 12 16:28:43 GMT+08:00 2020
      */
     @Update({
-        "update user_table",
-        "set account = #{account,jdbcType=VARCHAR},",
-          "password = #{password,jdbcType=VARCHAR},",
-          "is_active = #{isActive,jdbcType=CHAR},",
-          "modify_time = now()",
-        "where id = #{id,jdbcType=CHAR}"
+            "update user_table",
+            "set account = #{account,jdbcType=VARCHAR},",
+            "password = #{password,jdbcType=VARCHAR},",
+            "is_active = #{isActive,jdbcType=CHAR},",
+            "modify_time = now()",
+            "where id = #{id,jdbcType=CHAR}"
     })
     int updateByPrimaryKey(UserTable record);
 }

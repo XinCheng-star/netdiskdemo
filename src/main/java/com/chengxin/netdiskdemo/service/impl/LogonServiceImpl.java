@@ -29,8 +29,8 @@ public class LogonServiceImpl implements LogonService {
     public Result logon(UserBase userBase) {
 
         UserTable userTable = userTableMapper.getUserByAccount(userBase.getAccount());
-        if(userTable != null){
-            return new Result(false, StatusEnum.DOUBLE_LOG_ON,"DOUBLE_LOG_ON",userBase);
+        if (userTable != null) {
+            return new Result(false, StatusEnum.DOUBLE_LOG_ON, "DOUBLE_LOG_ON", userBase);
         }
 
         //插入新user的信息
@@ -40,10 +40,10 @@ public class LogonServiceImpl implements LogonService {
         user.setIsActive(UserStatusEnum.ALIVE.value());
         user.setPassword(MD5Util.getMd5FromPwd(userBase.getPwd()));
 
-        if( userTableMapper.insert(user) > 0){
-            return new Result(true,StatusEnum.SUCCESS,"",null);
+        if (userTableMapper.insert(user) > 0) {
+            return new Result(true, StatusEnum.SUCCESS, "", null);
         }
-        return new Result(false,StatusEnum.INSERT_ERROR,"INSERT_ERROR",null);
+        return new Result(false, StatusEnum.INSERT_ERROR, "INSERT_ERROR", null);
 
     }
 

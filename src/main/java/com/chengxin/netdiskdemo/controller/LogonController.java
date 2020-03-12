@@ -32,8 +32,8 @@ public class LogonController {
     public Result logon(@RequestBody @Valid UserBase userBase,
                         BindingResult bindingResult) {
 
-        if(bindingResult.hasErrors()){
-            return new Result(false, StatusEnum.PARAM_ERROR,"PARAM_ERROR",bindingResult.getAllErrors());
+        if (bindingResult.hasErrors()) {
+            return new Result(false, StatusEnum.PARAM_ERROR, "PARAM_ERROR", bindingResult.getAllErrors());
         }
 
         return logonService.logon(userBase);

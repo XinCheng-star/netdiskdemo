@@ -27,7 +27,7 @@ public enum StatusEnum {
         this.info = info;
     }
 
-    public int toValue(){
+    public int toValue() {
         return Integer.parseInt(info);
     }
 }
