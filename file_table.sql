@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 12/03/2020 19:06:40
+ Date: 13/03/2020 22:11:39
 */
 
 SET NAMES utf8mb4;
@@ -25,6 +25,7 @@ CREATE TABLE `file_table`  (
   `id` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'id',
   `file_check_code` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '文件的md5校验码',
   `local_path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '服务器端文件路径',
+  `size` double NOT NULL COMMENT '文件大小',
   `create_time` datetime(0) NOT NULL COMMENT '记录插入时间',
   `modify_time` datetime(0) NOT NULL COMMENT '记录删除时间',
   PRIMARY KEY (`id`) USING BTREE,
